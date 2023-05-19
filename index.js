@@ -7,10 +7,14 @@ const meterEl = document.getElementById("meter")
 const literEl = document.getElementById("liter")
 const kiloEl = document.getElementById("kilo")
 
+meterEl.textContent = "1 meter = 3.281 feet | 1 feet = 0.305 meters"
+literEl.textContent = "1 liter = 0.264 gallons | 1 gallon = 3.785 liters"
+kiloEl.textContent = "1 kilo = 2.205 pounds | 1 pound = 0.454 kilos"
+
 function onClick() {
     const inputEl = document.getElementById("text")
     input = inputEl.value
-    if (isNaN(input)) {
+    if (isNaN(input) || input === "") {
         alert("Enter an integer into input field!")
     } else {
         // 1 meter, 1 liter, 1 kilogram
@@ -22,13 +26,13 @@ function onClick() {
         const fixedNumbers = conversions.map(number => number.toFixed(3))
         
         meterEl.textContent = `
-        ${input} meters = ${fixedNumbers[0]} feet | ${input} feet = ${fixedNumbers[1]} meters
+        ${input} meter${input > 1 ? "s" : ""} = ${fixedNumbers[0]} feet | ${input} feet = ${fixedNumbers[1]} meters
         `
         literEl.textContent = `
-        ${input} liters = ${fixedNumbers[2]} gallons | ${input} gallons = ${fixedNumbers[3]} liters
+        ${input} liter${input > 1 ? "s" : ""} = ${fixedNumbers[2]} gallon${fixedNumbers[2] > 1 ? "s" : ""} | ${input} gallon${input > 1 ? "s" : ""} = ${fixedNumbers[3]} liter${fixedNumbers[3] > 1 ? "s" : ""}
         `
         kiloEl.textContent = `
-        ${input} kilos = ${fixedNumbers[4]} pounds | ${input} pounds = ${fixedNumbers[5]} kilos
+        ${input} kilo${input > 1 ? "s" : ""} = ${fixedNumbers[4]} pounds | ${input} pound${input > 1 ? "s" : ""} = ${fixedNumbers[5]} kilo${fixedNumbers[5] > 1 ? "s" : ""}
         `
     }
 }
