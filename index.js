@@ -1,3 +1,12 @@
+const text = document.getElementById("text")
+text.addEventListener("keypress", handleKeyPress)
+
+function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      btn.click();
+    }
+}
+
 let input = ""
 
 const btn = document.getElementById("convert-btn")
@@ -12,9 +21,8 @@ literEl.textContent = "1 liter = 0.264 gallons | 1 gallon = 3.785 liters"
 kiloEl.textContent = "1 kilo = 2.205 pounds | 1 pound = 0.454 kilos"
 
 function onClick() {
-    const inputEl = document.getElementById("text")
-    input = inputEl.value
-    if (isNaN(input) || input === "") {
+    input = text.value
+    if (isNaN(input) || input === "") { 
         alert("Enter an integer into input field!")
     } else {
         // 1 meter, 1 liter, 1 kilogram
@@ -36,6 +44,3 @@ function onClick() {
         `
     }
 }
-
-
-
