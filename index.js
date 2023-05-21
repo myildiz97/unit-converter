@@ -23,7 +23,7 @@ kiloEl.textContent = "1 kilo = 2.205 pounds | 1 pound = 0.454 kilos"
 function onClick() {
     input = text.value
     if (isNaN(input) || input === "") { 
-        alert("Enter an integer into input field!")
+        alert("Enter a number into input field!")
         text.value = ""
     } else {
         // 1 meter, 1 liter, 1 kilogram
